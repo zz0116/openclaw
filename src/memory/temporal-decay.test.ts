@@ -338,9 +338,7 @@ describe("temporal decay", () => {
       await fs.utimes(invalidPath, oldMtime, oldMtime);
 
       const decayed = await applyTemporalDecayToHybridResults({
-        results: [
-          { path: "memory/2025-13-40.md", score: 1, source: "memory" },
-        ],
+        results: [{ path: "memory/2025-13-40.md", score: 1, source: "memory" }],
         workspaceDir: dir,
         temporalDecay: { enabled: true, halfLifeDays: 30 },
         nowMs: NOW_MS,
@@ -360,9 +358,7 @@ describe("temporal decay", () => {
       await fs.utimes(invalidPath, recentMtime, recentMtime);
 
       const decayed = await applyTemporalDecayToHybridResults({
-        results: [
-          { path: "memory/2026-02-31-notes.md", score: 0.9, source: "memory" },
-        ],
+        results: [{ path: "memory/2026-02-31-notes.md", score: 0.9, source: "memory" }],
         workspaceDir: dir,
         temporalDecay: { enabled: true, halfLifeDays: 30 },
         nowMs: NOW_MS,
@@ -384,9 +380,7 @@ describe("temporal decay", () => {
       await fs.utimes(invalidSubdirPath, oldMtime, oldMtime);
 
       const decayed = await applyTemporalDecayToHybridResults({
-        results: [
-          { path: "memory/2026-00-00/notes.md", score: 1, source: "memory" },
-        ],
+        results: [{ path: "memory/2026-00-00/notes.md", score: 1, source: "memory" }],
         workspaceDir: dir,
         temporalDecay: { enabled: true, halfLifeDays: 30 },
         nowMs: NOW_MS,

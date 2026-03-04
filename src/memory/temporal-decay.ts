@@ -70,7 +70,9 @@ export function applyTemporalDecayToScore(params: {
  * "looks-dated" if a pattern matched but the date is invalid (e.g. 2025-13-40),
  * or null if no pattern matched at all.
  */
-function parseMemoryDateFromPath(filePath: string): { status: "matched"; date: Date } | { status: "looks-dated" } | null {
+function parseMemoryDateFromPath(
+  filePath: string,
+): { status: "matched"; date: Date } | { status: "looks-dated" } | null {
   const normalized = filePath.replaceAll("\\", "/").replace(/^\.\//, "");
 
   for (const pattern of DATED_MEMORY_PATH_PATTERNS) {
